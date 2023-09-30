@@ -1,0 +1,5 @@
+- name: creating roboshop
+  hosts: mongodb
+  become: yes
+  roles:
+  - mongodb
