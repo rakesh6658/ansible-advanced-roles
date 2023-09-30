@@ -1,4 +1,5 @@
 - name: creating mongodb
+  become: yes
   tasks:
   - name: Copying mongo.repo
     ansible.builtin.copy:
