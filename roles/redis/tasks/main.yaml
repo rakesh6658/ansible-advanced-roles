@@ -1,20 +1,20 @@
-  - name: installing repo
-    ansible.builtin.yum:
-     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-     state: present
-     disable_gpg_check: true
-  - name: Enable redis 6.2
-    ansible.builtin.command: yum module enable redis:remi-6.2 -y
-  - name: install redis
-    ansible.builtin.yum:
-     name: redis
-     state: present
-  - name: Replace 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf
-    ansible.builtin.replace:
-     path: /etc/redis.conf
-     regexp: '127.0.0.1'
-     replace: '0.0.0.0'
-  - name: start and enable "{{component}}"
-    ansible.builtin.import_role:
-    name: common
-    tasks_from: start-service.yaml           
+- name: installing repo
+  ansible.builtin.yum:
+   name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+   state: present
+   disable_gpg_check: true
+- name: Enable redis 6.2
+  ansible.builtin.command: yum module enable redis:remi-6.2 -y
+- name: install redis
+  ansible.builtin.yum:
+   name: redis
+   state: present
+- name: Replace 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf
+  ansible.builtin.replace:
+   path: /etc/redis.conf
+   regexp: '127.0.0.1'
+   replace: '0.0.0.0'
+- name: start and enable "{{component}}"
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: start-service.yaml           
