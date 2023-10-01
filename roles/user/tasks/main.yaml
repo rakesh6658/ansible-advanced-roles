@@ -2,3 +2,17 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: nodejs
+- name: setting the app directory
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: app-setup   
+
+
+- name: setting up mondodb and loading schema
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: mongodb-loadschema.yaml   
+- name: installing dependencies and systemd
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: systemd-setup   
