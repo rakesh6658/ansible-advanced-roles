@@ -6,17 +6,15 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: app-setup   
-- name: installing dependencies and systemd
-  ansible.builtin.import_role:
-   name: common
-   tasks_from: systemd-setup
-- name: start and enable "{{component}}"
-  ansible.builtin.import_role:
-   name: common
-   tasks_from: start-service.yaml    
+
+
 - name: setting up mondodb and loading schema
   ansible.builtin.import_role:
    name: common
    tasks_from: mongodb-loadschema.yaml   
+- name: installing dependencies and systemd
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: systemd-setup   
 
 
