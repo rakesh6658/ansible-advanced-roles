@@ -1,5 +1,5 @@
-- name: creating roboshop
-  hosts: "{{component}}"
+- name: ansible advanced
+  hosts: mongodb
   become: yes
   roles:
-  - "{{component}}"
+  - mongodb
