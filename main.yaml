@@ -1,5 +1,5 @@
 - name: ansible advanced
-  hosts: mongodb
+  hosts: "{{component}}"
   become: yes
   roles:
-  - mongodb
+  - "{{component}}"
