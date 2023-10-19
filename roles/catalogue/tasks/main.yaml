@@ -5,7 +5,11 @@
 - name: setting the app directory
   ansible.builtin.import_role:
    name: common
-   tasks_from: app-setup   
+   tasks_from: app-setup  
+- name: download npm
+  ansible.builtin.command: npm install 
+  args:
+   chdir: /app    
 
 
 - name: setting up mondodb and loading schema
