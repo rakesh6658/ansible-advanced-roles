@@ -7,7 +7,7 @@
    name: common
    tasks_from: app-setup 
 - name: download dependencies1
-  ansible.builtin.command: go mod init 
+  ansible.builtin.shell: go mod init 
   ignore_errors: true
 - name: download dependencies2
   ansible.builtin.shell: go get 
