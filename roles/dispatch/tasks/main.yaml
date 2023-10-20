@@ -5,10 +5,12 @@
 - name: setting the app directory
   ansible.builtin.import_role:
    name: common
-   tasks_from: app-setup 
-- name: download dependencies1
-  ansible.builtin.shell: go mod init 
-  ignore_errors: true
+   tasks_from: app-setup
+- name: download npm
+  ansible.builtin.command: go mod init  
+  args:
+   chdir: /app        
+
 - name: download dependencies2
   ansible.builtin.shell: go get 
   ignore_errors: true 
