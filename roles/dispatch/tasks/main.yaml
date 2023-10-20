@@ -6,17 +6,22 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: app-setup
-- name: download dependencies
+- name: download dependencies1
   ansible.builtin.command: go mod init dispatch
+  args:
+   chdir: /app   
+- name: download dependencies2
+  ansible.builtin.command: go get
+  args:
+   chdir: /app  
+- name: download dependencies3
+  ansible.builtin.command: go build
   args:
    chdir: /app        
 
-- name: download dependencies2
-  ansible.builtin.shell: go get 
-  ignore_errors: true 
-- name: download dependencies3
-  ansible.builtin.shell: go build 
-  ignore_errors: true   
+
+
+
 - name: installing dependencies and systemd
   ansible.builtin.import_role:
    name: common
