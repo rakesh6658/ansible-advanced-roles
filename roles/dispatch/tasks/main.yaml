@@ -6,8 +6,8 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: app-setup
-- name: download npm
-  ansible.builtin.command: go mod init  
+- name: download dependencies
+  ansible.builtin.command: go mod init dispatch
   args:
    chdir: /app        
 
