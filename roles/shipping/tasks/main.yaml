@@ -1,7 +1,7 @@
 - name: maven installing
   ansible.builtin.import_role:
    name: common
-   tasks_from: maven_setup
+   tasks_from: maven-setup
 - name: setting the app directory
   ansible.builtin.import_role:
    name: common
