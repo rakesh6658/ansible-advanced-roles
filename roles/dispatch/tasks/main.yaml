@@ -8,13 +8,13 @@
    tasks_from: app-setup 
 - name: download dependencies1
   ansible.builtin.command: go mod init 
-   ignore_errors: true
+  ignore_errors: true
 - name: download dependencies2
   ansible.builtin.shell: go get 
-   ignore_errors: true 
+  ignore_errors: true 
 - name: download dependencies3
   ansible.builtin.shell: go build 
-   ignore_errors: true   
+  ignore_errors: true   
 - name: installing dependencies and systemd
   ansible.builtin.import_role:
    name: common
