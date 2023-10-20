@@ -1,0 +1,26 @@
+- name: maven installing
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: maven_setup
+- name: setting the app directory
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: app-setup  
+- name: mvn clean package
+  ansible.builtin.command: mvn clean package
+  args:
+   chdir: /app
+- name: changing names
+  ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
+  args:
+   chdir: /app         
+- name: installing mysql
+  ansible.builtin.yum:
+   name: mysql
+   state: present   
+- name: load schema
+  ansible.builtin.shell: mysql -h 54.227.153.3 -uroot -pRoboShop@1 < /app/schema/shipping.sql            
+- name: installing dependencies and systemd
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: systemd-setup   
