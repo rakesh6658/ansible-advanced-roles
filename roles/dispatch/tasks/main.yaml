@@ -9,7 +9,8 @@
 - name: download dependencies1
   ansible.builtin.command: go mod init dispatch
   args:
-   chdir: /app   
+   chdir: /app 
+  ignore_errors: true     
 - name: download dependencies2
   ansible.builtin.command: go get
   args:
