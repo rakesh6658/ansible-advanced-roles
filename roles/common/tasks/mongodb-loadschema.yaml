@@ -7,4 +7,4 @@
    name: mongodb-org-shell
    state: present   
 - name: loading schema
-  ansible.builtin.shell: mongo --host 54.205.229.7 < "/app/schema/{{component}}.js" 
+  ansible.builtin.shell: mongo --host 3.85.104.83 < "/app/schema/{{component}}.js" 
