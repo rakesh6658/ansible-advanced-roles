@@ -19,7 +19,7 @@
    name: mysql
    state: present   
 - name: load schema
-  ansible.builtin.shell: mysql -h 174.129.172.80 -uroot -pRoboShop@1 < /app/schema/shipping.sql            
+  ansible.builtin.shell: mysql -h 3.85.104.83 -uroot -pRoboShop@1 < /app/schema/shipping.sql            
 - name: installing dependencies and systemd
   ansible.builtin.import_role:
    name: common
